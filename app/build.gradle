@@ -25,19 +25,7 @@ dependencies {
     annotationProcessor rootProject.ext.dependencies.arouter_compiler
     implementation project(':commonlib')
 
-    if(isNeedChatModule.toBoolean()){
-        implementation project(':component_chat')
-    }
-    if(isNeedContractModule.toBoolean()){
-        implementation project(':component_contract')
-    }
-    if(isNeedFindModule.toBoolean()){
-        implementation project(':component_find')
-    }
-    if(isNeedHomeModule.toBoolean()){
+    if (isRunAlone.toBoolean()) {
         implementation project(':component_home')
-    }
-    if(isNeedMineModule.toBoolean()){
-        implementation project(':component_mine')
     }
 }

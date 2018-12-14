@@ -1,1 +1,1 @@
-include ':app', ':component_chat', ':commonlib', ':component_contract', ':component_find', ':component_mine', ':component_home'
+include ':app',':commonlib', ':component_home'

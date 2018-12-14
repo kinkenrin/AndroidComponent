@@ -1,4 +1,4 @@
-if (!isNeedHomeModule.toBoolean()) {
+if (isRunAlone.toBoolean()) {
     apply plugin: 'com.android.application'
 } else {
     apply plugin: 'com.android.library'
@@ -7,9 +7,23 @@ if (!isNeedHomeModule.toBoolean()) {
 android {
     compileSdkVersion rootProject.ext.versions.compileSdkVersion
 
+    resourcePrefix "home_"
+
+    sourceSets {
+        main {
+            if (isRunAlone.toBoolean()) {
+                manifest.srcFile 'src/main/runalone/AndroidManifest.xml'
+                java.srcDirs = ['src/main/java', 'src/main/runalone/java']
+                res.srcDirs = ['src/main/res', 'src/main/runalone/res']
+            } else {
+                manifest.srcFile 'src/main/AndroidManifest.xml'
+            }
+        }
+    }
+
     defaultConfig {
-        if (!isNeedHomeModule.toBoolean()) {
-            applicationId rootProject.ext.versions.applicationId + "module_home"
+        if (isRunAlone.toBoolean()) {
+            applicationId rootProject.ext.versions.applicationId + "." + resourcePrefix
         }
         minSdkVersion rootProject.ext.versions.minSdkVersion
         targetSdkVersion rootProject.ext.versions.targetSdkVersion
@@ -31,9 +45,6 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.2'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 
     implementation rootProject.ext.dependencies.appcompatv7
     implementation rootProject.ext.dependencies.constraint_layout
