@@ -1,43 +1,41 @@
-apply plugin: 'com.android.application'
+if (!isNeedChatModule.toBoolean()) {
+    apply plugin: 'com.android.application'
+} else {
+    apply plugin: 'com.android.library'
+}
 
 android {
     compileSdkVersion rootProject.ext.versions.compileSdkVersion
+
     defaultConfig {
-        applicationId rootProject.ext.versions.applicationId
+        if (!isNeedChatModule.toBoolean()) {
+            applicationId rootProject.ext.versions.applicationId + "module_chat"
+        }
         minSdkVersion rootProject.ext.versions.minSdkVersion
         targetSdkVersion rootProject.ext.versions.targetSdkVersion
         versionCode rootProject.ext.versions.versionCode
         versionName rootProject.ext.versions.versionName
+
     }
+
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+
     implementation rootProject.ext.dependencies.appcompatv7
     implementation rootProject.ext.dependencies.constraint_layout
     implementation rootProject.ext.dependencies.arouter_api
     annotationProcessor rootProject.ext.dependencies.arouter_compiler
     implementation project(':commonlib')
-
-    if(isNeedChatModule.toBoolean()){
-        implementation project(':component_chat')
-    }
-    if(isNeedContractModule.toBoolean()){
-        implementation project(':component_contract')
-    }
-    if(isNeedFindModule.toBoolean()){
-        implementation project(':component_find')
-    }
-    if(isNeedHomeModule.toBoolean()){
-        implementation project(':component_home')
-    }
-    if(isNeedMineModule.toBoolean()){
-        implementation project(':component_mine')
-    }
 }
