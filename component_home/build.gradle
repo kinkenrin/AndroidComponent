@@ -30,8 +30,11 @@ android {
         versionCode rootProject.ext.versions.versionCode
         versionName rootProject.ext.versions.versionName
 
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [moduleName: project.getName()]
+            }
+        }
     }
 
     buildTypes {
@@ -41,6 +44,17 @@ android {
         }
     }
 
+}
+
+configurations.all {
+    resolutionStrategy.eachDependency { DependencyResolveDetails details ->
+        def requested = details.requested
+        if (requested.group == "com.android.support") {
+            if (!requested.name.startsWith("multidex")) {
+                details.useVersion "26.+"
+            }
+        }
+    }
 }
 
 dependencies {
