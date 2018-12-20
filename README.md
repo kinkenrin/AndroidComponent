@@ -1,0 +1,6 @@
+# AndroidComponent
+app是主项目，负责集成众多组件，控制组件的生命周期
+component_home是拆分的组件
+componentservice中定义了所有的组件提供的服务
+basicres定义了全局通用的theme和color等公共资源
+basiclib中是公共的基础库，一些第三方的库（okhttp等）也统一交给basiclib来引入
