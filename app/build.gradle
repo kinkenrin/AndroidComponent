@@ -29,8 +29,7 @@ dependencies {
     implementation rootProject.ext.dependencies.constraint_layout
     implementation rootProject.ext.dependencies.arouter_api
     annotationProcessor rootProject.ext.dependencies.arouter_compiler
-    implementation project(':basiclib')
-//    implementation project(':componentservice')
+    implementation project(':componentservice')
 
     if (!isRunAlone.toBoolean()) {
         runtimeOnly project(':component_home')
