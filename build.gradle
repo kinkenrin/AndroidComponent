@@ -1,4 +1,5 @@
 apply from: rootProject.file('dependencies.gradle')
+apply plugin: 'com.alibaba.arouter'
 
 buildscript {
     
@@ -12,7 +13,7 @@ buildscript {
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.2.1'
-
+        classpath "com.alibaba:arouter-register:1.0.2"
     }
 }
 

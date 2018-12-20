@@ -11,7 +11,7 @@ android {
 
         javaCompileOptions {
             annotationProcessorOptions {
-                arguments = [AROUTER_MODULE_NAME: project.getName()]
+                arguments = [AROUTER_MODULE_NAME: project.getName(), AROUTER_GENERATE_DOC: "enable"]
             }
         }
     }
@@ -25,9 +25,6 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation rootProject.ext.dependencies.appcompatv7
-    implementation rootProject.ext.dependencies.constraint_layout
-    implementation rootProject.ext.dependencies.arouter_api
     annotationProcessor rootProject.ext.dependencies.arouter_compiler
     implementation project(':componentservice')
 

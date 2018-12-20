@@ -12,11 +12,6 @@ android {
         versionCode rootProject.ext.versions.versionCode
         versionName rootProject.ext.versions.versionName
 
-        javaCompileOptions {
-            annotationProcessorOptions {
-                arguments = [AROUTER_MODULE_NAME: project.getName()]
-            }
-        }
     }
 
     buildTypes {
@@ -43,10 +38,5 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation rootProject.ext.dependencies.appcompatv7
-    implementation rootProject.ext.dependencies.constraint_layout
-    implementation rootProject.ext.dependencies.arouter_api
-    annotationProcessor rootProject.ext.dependencies.arouter_compiler
-    api project(':basiclib')
     api project(':basicres')
 }
