@@ -5,9 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.alibaba.android.arouter.launcher.ARouter;
+import com.github.king.componentservice.home.HomeService;
 import com.github.king.componentservice.home.bean.Author;
-
-import junit.framework.Test;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -26,4 +25,11 @@ public class MainActivity extends AppCompatActivity {
                 .withObject("author", author)
                 .navigation();
     }
+
+    public void viewClick2(View view) {
+        HomeService homeService = ARouter.getInstance().navigation(HomeService.class);
+        homeService.sayHello("你好啊！");
+    }
+
+
 }
