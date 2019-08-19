@@ -2,29 +2,38 @@ apply from: rootProject.file('dependencies.gradle')
 apply plugin: 'com.alibaba.arouter'
 
 buildscript {
-    
+
     repositories {
-//        maven { url 'https://maven.aliyun.com/repository/google' }
-//        maven { url 'https://maven.aliyun.com/repository/jcenter' }
-//        maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
-//        maven { url 'http://maven.aliyun.com/nexus/content/repositories/jcenter' }
-        google()
-        jcenter()
+        maven {
+            url 'https://maven.aliyun.com/repository/public'
+        }
+        maven {
+            url 'https://maven.aliyun.com/repository/jcenter'
+        }
+        maven {
+            url 'https://maven.aliyun.com/repository/google'
+        }
+        maven { url 'https://jitpack.io' }
     }
+
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.2.1'
+        classpath 'com.android.tools.build:gradle:3.4.2'
         classpath "com.alibaba:arouter-register:1.0.2"
     }
 }
 
 allprojects {
     repositories {
-//        maven { url 'https://maven.aliyun.com/repository/google' }
-//        maven { url 'https://maven.aliyun.com/repository/jcenter' }
-//        maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
-//        maven { url 'http://maven.aliyun.com/nexus/content/repositories/jcenter' }
-        google()
-        jcenter()
+        maven {
+            url 'https://maven.aliyun.com/repository/public'
+        }
+        maven {
+            url 'https://maven.aliyun.com/repository/jcenter'
+        }
+        maven {
+            url 'https://maven.aliyun.com/repository/google'
+        }
+        maven { url 'https://jitpack.io' }
     }
 }
 
