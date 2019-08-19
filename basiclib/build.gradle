@@ -21,7 +21,6 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     //一切基本第三方库 都在这里引用
     api rootProject.ext.dependencies.appcompatv7
-    api rootProject.ext.dependencies.appcompatv7
     api rootProject.ext.dependencies.constraint_layout
     api rootProject.ext.dependencies.arouter_api
 
