@@ -10,7 +10,7 @@ import com.github.king.componentservice.home.HomeService;
 /**
  * @author Created by jinxl on 2018/12/20.
  */
-@Route(path = "/home/hello", name = "测试服务")
+@Route(path = HomeService.PATH_METHOD_HELLO, name = HomeService.PATH_METHOD_NAME_HELLO)
 public class HomeServiceImpl implements HomeService {
     public static final String TAG = HomeServiceImpl.class.getSimpleName();
 

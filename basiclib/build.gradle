@@ -25,7 +25,4 @@ dependencies {
     api rootProject.ext.dependencies.arouter_api
 
     api rootProject.ext.dependencies.okhttp
-
-    api 'com.alibaba:fastjson:1.1.70.android'
-
 }

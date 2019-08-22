@@ -8,19 +8,18 @@ import android.util.Log;
 import com.alibaba.android.arouter.facade.annotation.Autowired;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
+import com.github.king.componentservice.home.HomeService;
 import com.github.king.componentservice.home.bean.Author;
 
 /**
  * @author Created by jinxl on 2018/12/20.
  */
-@Route(path = "/home/shareBook")
+@Route(path = HomeService.PATH_SHAREBOOK)
 public class ShareActivity extends AppCompatActivity {
 
     @Autowired(name = "bookName")
     String mBookName;
-//    @Autowired
-//    Long key1;
-    @Autowired
+    @Autowired(name = "key3")
     String key3;
     @Autowired(name = "author")
     Author mAuthor;
@@ -29,12 +28,12 @@ public class ShareActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ARouter.getInstance().inject(this);
-        String author = getIntent().getStringExtra("author");
-
+//        mBookName = getIntent().getStringExtra("bookName");
+//        key3 = getIntent().getStringExtra("key3");
+//        mAuthor = getIntent().getParcelableExtra("author");
 
         Log.i("aaaa", "mBookName:" + mBookName);
-//        Log.i("aaaa", "key1:" + key1);
         Log.i("aaaa", "key3:" + key3);
-        Log.i("aaaa", "mAuthor:" + (mAuthor != null ? mAuthor.toString() : ""));
+        Log.i("aaaa", "mAuthor:" + mAuthor.toString());
     }
 }

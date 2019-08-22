@@ -20,10 +20,10 @@ public class MainActivity extends AppCompatActivity {
 
     public void viewClick(View view) {
         Author author = new Author("Jack", 18, "China");
-        ARouter.getInstance().build("/home/shareBook")
+        ARouter.getInstance().build(HomeService.PATH_SHAREBOOK)
                 .withString("bookName", "月亮与六便士")
                 .withString("key3", "888")
-                .withObject("author", author)
+                .withParcelable("author", author)
                 .navigation();
     }
 
