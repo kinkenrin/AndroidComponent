@@ -1,4 +1,4 @@
-package com.github.king.androidcomponent.home_;
+package com.github.king.androidcomponent.home;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;

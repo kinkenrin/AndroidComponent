@@ -1,0 +1,19 @@
+apply plugin: 'groovy'
+apply plugin: 'maven'
+
+dependencies {
+    implementation gradleApi()
+    implementation localGroovy()
+}
+
+group = 'com.github.jxl.plugin'
+version = '1.0.0'
+archivesBaseName = 'build-plugin'
+
+uploadArchives{
+    repositories {
+        mavenDeployer{
+            repository(url: uri('../buildPlugin'))
+        }
+    }
+}

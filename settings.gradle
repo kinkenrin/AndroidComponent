@@ -1,1 +1,1 @@
-include ':app', ':basiclib', ':component_home', ':component_service',':basicres'
+include ':app', ':basiclib', ':component_home', ':component_service',':basicres', ':build-plugin'

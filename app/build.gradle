@@ -1,7 +1,19 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.github.jxl.plugin.build'
 
 android {
     compileSdkVersion rootProject.ext.versions.compileSdkVersion
+
+    // 签名配置
+    signingConfigs {
+        release {
+            storeFile file("./keystore/debug.keystore")
+        }
+
+        debug {
+            storeFile file("./keystore/debug.keystore")
+        }
+    }
+
     defaultConfig {
         applicationId rootProject.ext.versions.applicationId
         minSdkVersion rootProject.ext.versions.minSdkVersion
@@ -17,6 +29,13 @@ android {
     }
     buildTypes {
         release {
+            signingConfig signingConfigs.debug
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+        debug {
+            signingConfig signingConfigs.debug
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
@@ -28,7 +47,4 @@ dependencies {
     annotationProcessor rootProject.ext.dependencies.arouter_compiler
     implementation project(':component_service')
 
-    if (!isRunAlone.toBoolean()) {
-        runtimeOnly project(':component_home')
-    }
 }
