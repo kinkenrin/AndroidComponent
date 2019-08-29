@@ -4,7 +4,7 @@ apply plugin: 'com.alibaba.arouter'
 buildscript {
 
     repositories {
-        maven { url uri('./buildPlugin') }
+//        maven { url uri('./buildPlugin') }
         maven {
             url 'https://maven.aliyun.com/repository/public'
         }
@@ -20,8 +20,10 @@ buildscript {
     dependencies {
         classpath 'com.android.tools.build:gradle:3.4.2'
         classpath "com.alibaba:arouter-register:1.0.2"
-        classpath "com.github.jxl.plugin:build-plugin:1.0.0"
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.8.4'
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:2.1'
 
+        classpath "com.github.jxl:build-plugin:1.0.0"
     }
 }
 

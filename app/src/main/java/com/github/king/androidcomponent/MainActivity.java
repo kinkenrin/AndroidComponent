@@ -18,6 +18,11 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * 跨组件跳转
+     *
+     * @param view
+     */
     public void viewClick(View view) {
         Author author = new Author("Jack", 18, "China");
         ARouter.getInstance().build(HomeService.PATH_SHAREBOOK)

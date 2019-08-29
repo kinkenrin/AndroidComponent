@@ -27,6 +27,7 @@ public class ShareActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.home_activity_page);
         ARouter.getInstance().inject(this);
 //        mBookName = getIntent().getStringExtra("bookName");
 //        key3 = getIntent().getStringExtra("key3");
@@ -34,6 +35,8 @@ public class ShareActivity extends AppCompatActivity {
 
         Log.i("aaaa", "mBookName:" + mBookName);
         Log.i("aaaa", "key3:" + key3);
-        Log.i("aaaa", "mAuthor:" + mAuthor.toString());
+        if (mAuthor != null) {
+            Log.i("aaaa", "mAuthor:" + mAuthor.toString());
+        }
     }
 }

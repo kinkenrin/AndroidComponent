@@ -1,19 +1,47 @@
 apply plugin: 'groovy'
-apply plugin: 'maven'
+//apply plugin: 'maven'
 
 dependencies {
     implementation gradleApi()
     implementation localGroovy()
 }
 
-group = 'com.github.jxl.plugin'
-version = '1.0.0'
-archivesBaseName = 'build-plugin'
+//def MAVEN_LOCAL_PATH = uri('../buildPlugin')
+def GROUP_ID = 'com.github.jxl'
+def VERSION_NAME = '1.0.0'
+def ARTIFACT_ID = 'build-plugin'
 
-uploadArchives{
-    repositories {
-        mavenDeployer{
-            repository(url: uri('../buildPlugin'))
-        }
-    }
+ext {
+    siteUrl = 'https://github.com/kinkenrin/AndroidComponent'
+    gitUrl = 'https://github.com/kinkenrin/AndroidComponent'
+    issueTrackerUrl = 'https://github.com/kinkenrin/AndroidComponent/issues'
+
+    projectName = 'AndroidComponent'
+    projectDesc = 'Android Library'
+
+    developerId = 'alanking'
+    developerName = 'alanking'
+    developerEmail = 'jinxianlun@gmial.com'
+
+    bintrayRepo = 'maven'
+    publishedGroupId = GROUP_ID
+    proArtifactId = ARTIFACT_ID
+    proVersion = VERSION_NAME
+
+    bintrayUserPath = './local.properties'
 }
+
+apply from: '../bintrayUpload.gradle'
+//uploadArchives {
+//    repositories {
+//        mavenDeployer {
+//            repository(url: MAVEN_LOCAL_PATH)
+//            pom.project {
+//                groupId GROUP_ID
+//                artifactId ARTIFACT_ID
+//                version VERSION_NAME
+//            }
+//        }
+//    }
+//}
+
