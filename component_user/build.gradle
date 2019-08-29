@@ -1,0 +1,6 @@
+ext {
+    //组件名称
+    componentName = 'user'
+}
+
+apply from: '../component.gradle'

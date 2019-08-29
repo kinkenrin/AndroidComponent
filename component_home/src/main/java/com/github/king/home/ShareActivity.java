@@ -4,12 +4,13 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
+import android.widget.Toast;
 
 import com.alibaba.android.arouter.facade.annotation.Autowired;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
-import com.github.king.componentservice.home.HomeService;
-import com.github.king.componentservice.home.bean.Author;
+import com.github.king.home.bean.Author;
 
 /**
  * @author Created by jinxl on 2018/12/20.
@@ -38,5 +39,9 @@ public class ShareActivity extends AppCompatActivity {
         if (mAuthor != null) {
             Log.i("aaaa", "mAuthor:" + mAuthor.toString());
         }
+    }
+
+    public void onClickTv(View view) {
+        Toast.makeText(getApplicationContext(), "点击了分享", Toast.LENGTH_LONG).show();
     }
 }

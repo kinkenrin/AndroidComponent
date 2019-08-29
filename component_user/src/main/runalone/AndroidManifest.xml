@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.github.king.user">
+
+    <application
+        android:name="com.github.king.androidcomponent.user.App"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/user_app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:theme="@style/AppBaseTheme">
+        <activity
+            android:name="com.github.king.androidcomponent.user.MainActivity"
+            android:screenOrientation="portrait">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.github.king.user.LoginActivity" />
+    </application>
+
+</manifest>

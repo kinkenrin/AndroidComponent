@@ -1,9 +1,9 @@
-package com.github.king.androidcomponent.home;
+package com.github.king.androidcomponent.user;
 
 import android.app.Application;
 
 import com.alibaba.android.arouter.launcher.ARouter;
-import com.github.king.home.BuildConfig;
+import com.github.king.user.BuildConfig;
 
 /**
  * @author Created by jinxl on 2018/12/20.
@@ -17,6 +17,7 @@ public class App extends Application {
             ARouter.openDebug();   // 开启调试模式(如果在InstantRun模式下运行，必须开启调试模式！线上版本需要关闭,否则有安全风险)
         }
         ARouter.init(this);
+
 
     }
 }

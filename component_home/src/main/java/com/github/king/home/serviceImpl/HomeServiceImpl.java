@@ -5,12 +5,12 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.github.king.componentservice.home.HomeService;
+import com.github.king.home.HomeService;
 
 /**
  * @author Created by jinxl on 2018/12/20.
  */
-@Route(path = HomeService.PATH_METHOD_HELLO, name = HomeService.PATH_METHOD_NAME_HELLO)
+@Route(path = HomeService.PATH_SERVICE, name = HomeService.PATH_SERVICE_NAME)
 public class HomeServiceImpl implements HomeService {
     public static final String TAG = HomeServiceImpl.class.getSimpleName();
 
@@ -26,7 +26,7 @@ public class HomeServiceImpl implements HomeService {
 
     @Override
     public void onCreate() {
-        Log.i(TAG, "组件注册");
+        Log.i(TAG, "Home 组件注册");
     }
 
     @Override

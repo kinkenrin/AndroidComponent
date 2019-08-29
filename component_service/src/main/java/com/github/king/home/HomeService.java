@@ -1,4 +1,4 @@
-package com.github.king.componentservice.home;
+package com.github.king.home;
 
 import android.content.Context;
 
@@ -14,8 +14,8 @@ public interface HomeService extends IComponentService {
     //访问路径
     String PATH_SHAREBOOK = "/home/shareBook";
     //方法调用路径
-    String PATH_METHOD_HELLO = "/home/hello";
-    String PATH_METHOD_NAME_HELLO = "测试服务";
+    String PATH_SERVICE = "/home/service";
+    String PATH_SERVICE_NAME = "组件Home Service";
 
     void sayHello(Context context, String name);
 }

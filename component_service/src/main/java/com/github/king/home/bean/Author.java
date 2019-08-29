@@ -1,4 +1,4 @@
-package com.github.king.componentservice.home.bean;
+package com.github.king.home.bean;
 
 import android.os.Parcel;
 import android.os.Parcelable;
