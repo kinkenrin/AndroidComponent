@@ -16,6 +16,9 @@ class ComBuild implements Plugin<Project> {
         String taskNames = project.gradle.startParameter.taskNames.toString()
         System.out.println("taskNames is " + taskNames)
         String module = project.path.replace(":", "")
+        if (project.path.startsWith(":")) {
+            module = project.path.substring(1)
+        }
         System.out.println("current module is " + module)
         AssembleTask assembleTask = getTaskInfo(project.gradle.startParameter.taskNames)
 
@@ -108,7 +111,17 @@ class ComBuild implements Plugin<Project> {
                 assembleTask.isAssemble = true
                 System.out.println("debug assembleTask info:"+task)
                 String[] strs = task.split(":")
-                assembleTask.modules.add(strs.length > 1 ? strs[strs.length - 2] : "all")
+                String contetn = strs.length > 1 ? strs[strs.length - 2] : "all"
+                if (strs.length > 1) {
+                    contetn = ""
+                    for (int i = 1; i < strs.length - 1; i++) {
+                        contetn += strs[i]
+                        if (i < strs.length - 2) {
+                            contetn += ":"
+                        }
+                    }
+                }
+                assembleTask.modules.add(contetn)
                 break
             }
         }
