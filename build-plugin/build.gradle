@@ -8,7 +8,7 @@ dependencies {
 
 //def MAVEN_LOCAL_PATH = uri('../buildPlugin')
 def GROUP_ID = 'com.github.jxl'
-def VERSION_NAME = '1.0.0'
+def VERSION_NAME = '1.0.3'
 def ARTIFACT_ID = 'build-plugin'
 
 ext {
