@@ -2,6 +2,7 @@ apply plugin: 'com.github.jxl.plugin.build'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'auto-register'
 
 android {
     compileSdkVersion rootProject.ext.versions.compileSdkVersion
@@ -59,3 +60,30 @@ dependencies {
     implementation project(':component_service')
 
 }
+
+autoregister {
+    registerInfo = [
+            [
+                    'scanInterface'           : 'com.alibaba.android.arouter.facade.template.IRouteRoot'
+                    , 'codeInsertToClassName' : 'com.alibaba.android.arouter.core.LogisticsCenter'
+                    , 'codeInsertToMethodName': 'loadRouterMap'//static方法
+                    , 'registerMethodName'    : 'registerRouteRoot' //static方法
+                    , 'include'               : ['com/alibaba/android/arouter/routes/.*']
+            ],
+            [
+                    'scanInterface'           : 'com.alibaba.android.arouter.facade.template.IInterceptorGroup'
+                    , 'codeInsertToClassName' : 'com.alibaba.android.arouter.core.LogisticsCenter'
+                    , 'codeInsertToMethodName': 'loadRouterMap'//static方法
+                    , 'registerMethodName'    : 'registerInterceptor' //static方法
+                    , 'include'               : ['com/alibaba/android/arouter/routes/.*']
+            ],
+            [
+                    'scanInterface'           : 'com.alibaba.android.arouter.facade.template.IProviderGroup'
+                    , 'codeInsertToClassName' : 'com.alibaba.android.arouter.core.LogisticsCenter'
+                    , 'codeInsertToMethodName': 'loadRouterMap'//static方法
+                    , 'registerMethodName'    : 'registerProvider' //static方法
+                    , 'include'               : ['com/alibaba/android/arouter/routes/.*']
+            ]
+    ]
+}
+
