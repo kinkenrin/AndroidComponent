@@ -164,14 +164,14 @@ class ComBuild implements Plugin<Project> {
                  * compileComponent=com.luojilab.reader:readercomponent:1.0.0
                  * 注意，前提是已经将组件aar文件发布到maven上，并配置了相应的repositories
                  */
-                project.dependencies.add("api", str)
+                project.dependencies.add("implementation", str)
                 System.out.println("add dependencies lib  : " + str)
             } else {
                 /**
                  * 示例语法:module
                  * compileComponent=readercomponent,sharecomponent
                  */
-                project.dependencies.add("api", project.project(':' + str))
+                project.dependencies.add("implementation", project.project(':' + str))
                 System.out.println("add dependencies project : " + str)
             }
         }
