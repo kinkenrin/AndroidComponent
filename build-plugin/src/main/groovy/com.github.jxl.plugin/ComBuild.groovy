@@ -43,6 +43,10 @@ class ComBuild implements Plugin<Project> {
             } else {
                 isRunAlone = false
             }
+
+            if (assembleTask.isPublish) {
+                isRunAlone = false
+            }
         }
         project.setProperty("isRunAlone", isRunAlone)
 
@@ -103,13 +107,17 @@ class ComBuild implements Plugin<Project> {
                     || task.contains("asR")
                     || task.contains("asD")
                     || task.toUpperCase().contains("TINKER")
+                    || task.toUpperCase().contains("PUBLISH")
                     || task.toUpperCase().contains("INSTALL")
                     || task.toUpperCase().contains("RESGUARD")) {
                 if (task.toUpperCase().contains("DEBUG")) {
                     assembleTask.isDebug = true
                 }
+                if (task.toUpperCase().contains("PUBLISH")) {
+                    assembleTask.isPublish = true
+                }
                 assembleTask.isAssemble = true
-                System.out.println("debug assembleTask info:"+task)
+                System.out.println("debug assembleTask info:" + task)
                 String[] strs = task.split(":")
                 String contetn = strs.length > 1 ? strs[strs.length - 2] : "all"
                 if (strs.length > 1) {
@@ -180,6 +188,7 @@ class ComBuild implements Plugin<Project> {
     private class AssembleTask {
         boolean isAssemble = false
         boolean isDebug = false
+        boolean isPublish = false
         List<String> modules = new ArrayList<>()
     }
 
