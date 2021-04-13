@@ -10,28 +10,28 @@ dependencies {
 def GROUP_ID = 'com.github.jxl'
 def VERSION_NAME = '1.0.11'
 def ARTIFACT_ID = 'build-plugin'
-
-ext {
-    siteUrl = 'https://github.com/kinkenrin/AndroidComponent'
-    gitUrl = 'https://github.com/kinkenrin/AndroidComponent'
-    issueTrackerUrl = 'https://github.com/kinkenrin/AndroidComponent/issues'
-
-    projectName = 'AndroidComponent'
-    projectDesc = 'Android Library'
-
-    developerId = 'alanking'
-    developerName = 'alanking'
-    developerEmail = 'jinxianlun@gmial.com'
-
-    bintrayRepo = 'maven'
-    publishedGroupId = GROUP_ID
-    proArtifactId = ARTIFACT_ID
-    proVersion = VERSION_NAME
-
-    bintrayUserPath = './local.properties'
-}
-
-apply from: '../bintrayUpload.gradle'
+//
+//ext {
+//    siteUrl = 'https://github.com/kinkenrin/AndroidComponent'
+//    gitUrl = 'https://github.com/kinkenrin/AndroidComponent'
+//    issueTrackerUrl = 'https://github.com/kinkenrin/AndroidComponent/issues'
+//
+//    projectName = 'AndroidComponent'
+//    projectDesc = 'Android Library'
+//
+//    developerId = 'alanking'
+//    developerName = 'alanking'
+//    developerEmail = 'jinxianlun@gmial.com'
+//
+//    bintrayRepo = 'maven'
+//    publishedGroupId = GROUP_ID
+//    proArtifactId = ARTIFACT_ID
+//    proVersion = VERSION_NAME
+//
+//    bintrayUserPath = './local.properties'
+//}
+//
+//apply from: '../bintrayUpload.gradle'
 //uploadArchives {
 //    repositories {
 //        mavenDeployer {
@@ -44,4 +44,20 @@ apply from: '../bintrayUpload.gradle'
 //        }
 //    }
 //}
+
+apply plugin: 'maven'
+def MAVEN_LOCAL_PATH = uri('/Users/jinxianlun/Desktop/androidWorkSpace/JLBuryPointTools/JLRepo')
+//def MAVEN_LOCAL_PATH = uri('/Users/jinxianlun/.m2/repository')
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository(url: MAVEN_LOCAL_PATH)
+            pom.project {
+                groupId GROUP_ID
+                artifactId ARTIFACT_ID
+                version VERSION_NAME
+            }
+        }
+    }
+}
 
