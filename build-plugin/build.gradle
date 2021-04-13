@@ -46,7 +46,7 @@ def ARTIFACT_ID = 'build-plugin'
 //}
 
 apply plugin: 'maven'
-def MAVEN_LOCAL_PATH = uri('/Users/jinxianlun/Desktop/androidWorkSpace/JLBuryPointTools/JLRepo')
+def MAVEN_LOCAL_PATH = uri('/Users/jinxianlun/Desktop/androidWorkSpace/JLRepo')
 //def MAVEN_LOCAL_PATH = uri('/Users/jinxianlun/.m2/repository')
 uploadArchives {
     repositories {
